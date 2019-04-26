@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar'
+import IngredientList from './components/IngredientList'
 
 class App extends Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
+			ingredient: "",
 			ingredients: [],
 		}
 
@@ -22,7 +24,8 @@ class App extends Component {
 		this.setState({
 			ingredients: joined
 		})
-		console.log(this.state.ingredients)
+
+		this.test()
 	}
 
 	handleChange(e) {
@@ -31,10 +34,15 @@ class App extends Component {
 		})
 	}
 
+	test() {
+		console.log(this.state.ingredient, this.state.ingredients)
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+				<SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+				<IngredientList ingredients={this.state.ingredients} />
 			</div>
 		);
 	}
