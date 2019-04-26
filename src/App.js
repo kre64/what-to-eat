@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SearchBar from './components/SearchBar'
 import IngredientList from './components/IngredientList'
 
 class App extends Component {
@@ -16,16 +15,19 @@ class App extends Component {
 	}
 
 	// Update ingredients list with new ingredient and clear form
-	// check if ingredient already on list !!
-	// clear the ingredients list!
+	// clear the ingredients list
 	handleSubmit(e) {
 		e.preventDefault()
-		let joined = this.state.ingredients.concat(this.state.ingredient)
-		this.setState({
-			ingredients: joined
-		})
-
-		this.test()
+		if(this.newIngredient(this.state.ingredient)){
+			let joined = this.state.ingredients.concat(this.state.ingredient)
+			this.setState({
+				ingredients: joined,
+			})
+			this.input.value = ''
+		}
+		else {
+			console.log("This ingredient already exists!")
+		}
 	}
 
 	handleChange(e) {
@@ -34,14 +36,24 @@ class App extends Component {
 		})
 	}
 
-	test() {
-		console.log(this.state.ingredient, this.state.ingredients)
+	// Check if ingredient exists
+	newIngredient(ingredient) {
+		for (let i = 0; i < this.state.ingredients.length; i++) {
+			if(ingredient === this.state.ingredients[i]) {
+				return false
+			}
+		}
+		return true
 	}
 
 	render() {
 		return (
 			<div className="App">
-				<SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+				<form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+					<input className="form-control form-control-lg" type="text" 
+					placeholder="Enter an ingredient" ref={(input) => this.input = input}>
+					</input>
+            	</form>
 				<IngredientList ingredients={this.state.ingredients} />
 			</div>
 		);

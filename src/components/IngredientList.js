@@ -8,15 +8,15 @@ class IngredientList extends Component {
     
     renderIngredients() {
         const ingredients = this.props.ingredients.map((i) => (
-            <div key={this.props.ingredients.indexOf(i)}>
+            <li key={this.props.ingredients.indexOf(i)}>
                 {i}
-            </div>
+            </li>
         ));
 
         return(
-            <div>
+            <ul>
                 {ingredients}
-            </div>
+            </ul>
         )
     }
     render() {
