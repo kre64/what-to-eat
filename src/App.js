@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import IngredientList from './components/IngredientList'
+import RecipeGrid from './components/RecipeGrid'
 
 class App extends Component {
 	constructor(props) {
@@ -50,7 +51,6 @@ class App extends Component {
 
 	// Removes an ingredient from the list
 	removeIngredient(e) {
-		
 		let new_arr = this.state.ingredients.filter(function(value){
 			return value !== e.target.id
 		})
@@ -58,7 +58,6 @@ class App extends Component {
 		this.setState({
 			ingredients: new_arr
 		})
-
 	}
 
 	render() {
@@ -70,6 +69,7 @@ class App extends Component {
 					</input>
             	</form>
 				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
+				<RecipeGrid requested={false} />
 			</div>
 		);
 	}
