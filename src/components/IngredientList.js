@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 // List the ingredients the user has typed in, let users remove ingredients from
 // the list
 class IngredientList extends Component {
