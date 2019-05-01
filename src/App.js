@@ -12,10 +12,11 @@ class App extends Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
+		this.removeIngredient = this.removeIngredient.bind(this)
 	}
 
-	// Update ingredients list with new ingredient and clear form
-	// clear the ingredients list
+	// Check if ingredient exists, if exists then update ingredients list with new ingredient, 
+	// clear input form clear the ingredients list
 	handleSubmit(e) {
 		e.preventDefault()
 		if(this.newIngredient(this.state.ingredient)){
@@ -30,6 +31,7 @@ class App extends Component {
 		}
 	}
 
+	// Update current ingredient with value from input field
 	handleChange(e) {
 		this.setState({
 			ingredient: e.target.value
@@ -46,6 +48,19 @@ class App extends Component {
 		return true
 	}
 
+	// Removes an ingredient from the list
+	removeIngredient(e) {
+		
+		let new_arr = this.state.ingredients.filter(function(value){
+			return value !== e.target.id
+		})
+
+		this.setState({
+			ingredients: new_arr
+		})
+
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -54,7 +69,7 @@ class App extends Component {
 					placeholder="Enter an ingredient" ref={(input) => this.input = input}>
 					</input>
             	</form>
-				<IngredientList ingredients={this.state.ingredients} />
+				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
 			</div>
 		);
 	}
