@@ -11,16 +11,15 @@ class IngredientList extends Component {
     // This function lists all the ingredients passed from the parent App
     renderIngredients() {
         const ingredients = this.props.ingredients.map((i) => (
-            <div className="col ingredient-pill p-1 m-1" key={this.props.ingredients.indexOf(i)}>
-                {i}
-                <span className="close-btn" onClick={this.props.removeIngredient} id={i}>&times;</span>
-            </div>
+            <li className="list-inline-item ingredient-pill" key={this.props.ingredients.indexOf(i)}>
+                {i} <span className="close-btn" onClick={this.props.removeIngredient} id={i}>&times;</span> 
+            </li>
         ));
 
         return(
-            <div className="row">
+            <ul className="list-inline">
                 {ingredients}
-            </div>
+            </ul>
         )
     }
     render() {

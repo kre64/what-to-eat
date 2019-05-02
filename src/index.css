@@ -8,20 +8,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .ingredient-pill {
+  margin-bottom: 10px;
+  padding-right: 1.5rem;
+  padding-left: .5rem;
+  white-space: nowrap;
   text-align: left;
-  background-color: rgb(218, 218, 218);
-  border-radius: .8rem;
+  background-color: white;
+  border-radius: .5rem;
+  font-weight: 600;
+  border: 1px solid black;
+  line-height: 1.6;
 }
 
 .close-btn {
-  top: 50%;
-  right: .8rem;
+  color: black;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
   position: absolute;
-  transform: translate(0%, -50%);
+  display: inline-block;
+  padding-left: .5rem; 
 }

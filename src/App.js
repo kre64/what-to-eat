@@ -64,7 +64,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-					<input className="form-control form-control-lg" type="text" 
+					<input className="form-control form-control-lg" type="text" maxLength="32"
 					placeholder="Enter an ingredient" ref={(input) => this.input = input}>
 					</input>
             	</form>
