@@ -11,20 +11,21 @@ class IngredientList extends Component {
     // This function lists all the ingredients passed from the parent App
     renderIngredients() {
         const ingredients = this.props.ingredients.map((i) => (
-            <li key={this.props.ingredients.indexOf(i)} onClick={this.props.removeIngredient} id={i}>
+            <div className="col" key={this.props.ingredients.indexOf(i)}>
                 {i}
-            </li>
+                <span onClick={this.props.removeIngredient} id={i}>&times;</span>
+            </div>
         ));
 
         return(
-            <ul>
+            <div className="row">
                 {ingredients}
-            </ul>
+            </div>
         )
     }
     render() {
         return (
-            <div>
+            <div className="container">
                 Ingredients: {this.renderIngredients()}
             </div>
         )
