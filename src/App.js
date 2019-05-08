@@ -10,7 +10,8 @@ class App extends Component {
 		this.state = {
 			ingredient: "",
 			ingredients: [],
-			recipes: []
+			recipes: [],
+			requested: false
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -68,6 +69,7 @@ class App extends Component {
 		const url = "https://cors.io/?http://www.recipepuppy.com/api/?i=" + csvIngredients
 		axios.get(url)
 		.then(response => {
+			console.log(response.data)
 			this.setState({
 				recipes: response.data.results,
 				requested: true
@@ -87,8 +89,8 @@ class App extends Component {
 					</input>
             	</form>
 				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
-				<button onClick={this.getRecipes}>Click to test api!</button>
-				<RecipeGrid requested={false} />
+				<button onClick={this.getRecipes} style={{display: this.state.requested ? 'none' : 'block' }} >Click to test api!</button>
+				<RecipeGrid requested={this.state.requested} recipes={this.state.recipes} />
 				<footer className="wte-footer">
 					<small className="text-small muted">Powered by recipepuppy!</small>
 				</footer>

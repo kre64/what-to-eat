@@ -5,22 +5,30 @@ class RecipeGrid extends Component {
 	constructor(props){
         super(props)
         console.log(props)
-
-        this.state = {
-            recipes: []
-        }
     }
 
-    componentDidUpdate() {
-        if(this.props.requested){
-
-        }
+    renderRecipeGrid() {
+        const recipes = this.props.recipes.map((recipe) =>
+            <div key={this.props.recipes.indexOf(recipe)}>
+                <p>
+                    {recipe.href}
+                    {recipe.ingredients}
+                    {recipe.thumbnail}
+                    {recipe.title}
+                </p>
+            </div>
+        )
+        return(
+            <div className="inner-grid">
+                {recipes}
+            </div>
+        )
     }
     
     render() {
         return (
             <div className="grid-holder">
-                Recipe grid goes here :)
+                {this.renderRecipeGrid()}
             </div>
         )
     }
