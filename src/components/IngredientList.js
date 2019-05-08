@@ -25,7 +25,7 @@ class IngredientList extends Component {
     render() {
         return (
             <div className="container">
-                Ingredients: {this.renderIngredients()}
+                {this.renderIngredients()}
             </div>
         )
     }

@@ -7,6 +7,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.wte-form {
+  padding-bottom: 1rem;
+}
+
 .ingredient-pill {
   margin-bottom: 10px;
   padding-right: 1.5rem;

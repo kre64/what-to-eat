@@ -64,7 +64,7 @@ class App extends Component {
 		})
 	}
 
-	getRecipes() {
+	getRecipes(e) {
 		const csvIngredients = this.state.ingredients.join(',')
 		const url = "https://cors.io/?http://www.recipepuppy.com/api/?i=" + csvIngredients
 		axios.get(url)
@@ -83,13 +83,13 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+				<form onSubmit={this.handleSubmit} onChange={this.handleChange} className="input-group wte-form">
 					<input className="form-control form-control-lg" type="text" maxLength="32"
 					placeholder="Enter an ingredient" ref={(input) => this.input = input}>
 					</input>
+					<button type="button" onClick={this.getRecipes}>Go!</button>
             	</form>
 				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
-				<button onClick={this.getRecipes} style={{display: this.state.requested ? 'none' : 'block' }} >Click to test api!</button>
 				<RecipeGrid requested={this.state.requested} recipes={this.state.recipes} />
 				<footer className="wte-footer">
 					<small className="text-small muted">Powered by recipepuppy!</small>
