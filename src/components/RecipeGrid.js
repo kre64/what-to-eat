@@ -10,16 +10,16 @@ class RecipeGrid extends Component {
     renderRecipeGrid() {
         const recipes = this.props.recipes.map((recipe) =>
             <div key={this.props.recipes.indexOf(recipe)}>
-                <p>
+                <div className="col">
                     {recipe.href}
                     {recipe.ingredients}
                     {recipe.thumbnail}
                     {recipe.title}
-                </p>
+                </div>
             </div>
         )
         return(
-            <div className="inner-grid">
+            <div>
                 {recipes}
             </div>
         )
