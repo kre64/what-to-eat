@@ -60,6 +60,10 @@ class App extends Component {
 		})
 	}
 
+	getRecipes() {
+
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -69,7 +73,11 @@ class App extends Component {
 					</input>
             	</form>
 				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
+				<button onClick={this.getRecipes}>Click to test api!</button>
 				<RecipeGrid requested={false} />
+				<footer className="wte-footer">
+					<small className="text-small muted">Powered by recipepuppy!</small>
+				</footer>
 			</div>
 		);
 	}

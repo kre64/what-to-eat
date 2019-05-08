@@ -9,7 +9,7 @@ class RecipeGrid extends Component {
     
     render() {
         return (
-            <div>
+            <div className="grid-holder">
                 Recipe grid goes here :)
             </div>
         )
