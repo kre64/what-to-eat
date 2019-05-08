@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import IngredientList from './components/IngredientList'
-import RecipeGrid from './components/RecipeGrid'
+import IngredientList from './components/IngredientList';
+import RecipeGrid from './components/RecipeGrid';
+import axios from 'axios';
 
 class App extends Component {
 	constructor(props) {
@@ -9,11 +10,13 @@ class App extends Component {
 		this.state = {
 			ingredient: "",
 			ingredients: [],
+			recipes: []
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 		this.removeIngredient = this.removeIngredient.bind(this)
+		this.getRecipes = this.getRecipes.bind(this)
 	}
 
 	// Check if ingredient exists, if exists then update ingredients list with new ingredient, 
@@ -61,7 +64,18 @@ class App extends Component {
 	}
 
 	getRecipes() {
-
+		const csvIngredients = this.state.ingredients.join(',')
+		const url = "https://cors.io/?http://www.recipepuppy.com/api/?i=" + csvIngredients
+		axios.get(url)
+		.then(response => {
+			this.setState({
+				recipes: response.data.results,
+				requested: true
+			})
+		})
+		.catch(error => {
+			console.log(error);
+		})
 	}
 
 	render() {

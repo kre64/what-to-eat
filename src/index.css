@@ -1,5 +1,5 @@
 html, body {
-  height: 100%;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -20,26 +20,29 @@ html, body {
   line-height: 1.6;
 }
 
+.ingredient-pill:hover{
+  cursor: default;
+}
+
 .close-btn {
+  cursor: pointer;
   color: black;
   border-top-right-radius: .5rem;
   border-bottom-right-radius: .5rem;
   position: absolute;
   display: inline-block;
-  padding-left: .5rem; 
+  margin-left: .5rem; 
 }
 
 .grid-holder {
+  height: 100vh;
   min-height: 100%;
-  background-color: green;
 }
 
 .wte-footer {
-  position: absolute;
   bottom: 0;
   background-color: burlywood;
-  width: 100%;
+  width: 100vw;
   height: 5%;
-  margin-top: -5%;
   text-align: center;
 }

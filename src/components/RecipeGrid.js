@@ -5,6 +5,16 @@ class RecipeGrid extends Component {
 	constructor(props){
         super(props)
         console.log(props)
+
+        this.state = {
+            recipes: []
+        }
+    }
+
+    componentDidUpdate() {
+        if(this.props.requested){
+
+        }
     }
     
     render() {
