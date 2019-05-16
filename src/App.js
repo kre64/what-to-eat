@@ -92,7 +92,8 @@ class App extends Component {
 				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
 				<RecipeGrid requested={this.state.requested} recipes={this.state.recipes} />
 				<footer className="wte-footer">
-					<small className="text-small muted">Powered by recipepuppy!</small>
+					<small className="text-small muted">Powered by <a href="http://www.recipepuppy.com/" 
+					target="_blank" rel="noopener noreferrer" aria-label="GitHub">recipepuppy!</a></small>
 				</footer>
 			</div>
 		);
