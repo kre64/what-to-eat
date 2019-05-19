@@ -1,8 +1,9 @@
 # what-to-eat
 Food recommendation app
 
-# Install
-`npm install`
 
-# Usage
+## Usage
+install required npm dependencies  
+`npm install`  
+
 `npm start`
