@@ -3,8 +3,11 @@ Food recommendation app, built with React, HTML 5, SCSS, JavaScript, and powered
 
 PREVIEW HERE
 
+## Notes to end users
 
-## Usage
+//
+
+## Installation & Usage
 `npm install`  
 
 `npm start`
