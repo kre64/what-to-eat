@@ -24,7 +24,7 @@ class IngredientList extends Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="container-fluid">
                 {this.renderIngredients()}
             </div>
         )

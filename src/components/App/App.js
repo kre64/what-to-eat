@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import IngredientList from './components/IngredientList';
-import RecipeGrid from './components/RecipeGrid';
+
+import IngredientList from '../IngredientList/IngredientList';
+import RecipeGrid from '../RecipeGrid/RecipeGrid';
+
 import axios from 'axios';
 
 class App extends Component {
