@@ -68,9 +68,7 @@ class App extends Component {
 	getRecipes(e) {
 		const csvIngredients = this.state.ingredients.join(',')
 		const url = "https://api.allorigins.win/raw?url=http://www.recipepuppy.com/api/?i=" + csvIngredients
-		fetch(url, {
-			method: 'GET'
-		})
+		fetch(url)
 		.then(response => response.json()).then(data=> {
 			console.log(data)
 			this.setState({
