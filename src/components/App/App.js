@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import IngredientList from '../IngredientList/IngredientList';
 import RecipeGrid from '../RecipeGrid/RecipeGrid';
 
-import axios from 'axios';
 
 class App extends Component {
 	constructor(props) {
@@ -68,12 +67,14 @@ class App extends Component {
 
 	getRecipes(e) {
 		const csvIngredients = this.state.ingredients.join(',')
-		const url = "https://cors.io/?http://www.recipepuppy.com/api/?i=" + csvIngredients
-		axios.get(url)
-		.then(response => {
-			console.log(response.data)
+		const url = "https://api.allorigins.win/raw?url=http://www.recipepuppy.com/api/?i=" + csvIngredients
+		fetch(url, {
+			method: 'GET'
+		})
+		.then(response => response.json()).then(data=> {
+			console.log(data)
 			this.setState({
-				recipes: response.data.results,
+				recipes: data.results,
 				requested: true
 			})
 		})
