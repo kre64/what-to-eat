@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RecipeCard from '../RecipeCard/RecipeCard';
+import Container from 'react-bootstrap/Container';
 
 // Grid display of recipes after user requests a query
 class RecipeGrid extends Component {
@@ -10,12 +12,9 @@ class RecipeGrid extends Component {
     renderRecipeGrid() {
         const recipes = this.props.recipes.map((recipe) =>
             <div key={this.props.recipes.indexOf(recipe)}>
-                <div className="col">
-                    {recipe.href}
-                    {recipe.ingredients}
-                    {recipe.thumbnail}
-                    {recipe.title}
-                </div>
+                <Container fluid>
+                    <RecipeCard recipe={recipe}/>
+                </Container>
             </div>
         )
         return(

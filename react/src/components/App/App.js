@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import IngredientList from '../IngredientList/IngredientList';
 import RecipeGrid from '../RecipeGrid/RecipeGrid';
+import { FaSearch } from 'react-icons/fa';
+import { FiPlusCircle } from 'react-icons/fi';
 
 
 class App extends Component {
@@ -29,6 +31,7 @@ class App extends Component {
 			let joined = this.state.ingredients.concat(this.state.ingredient)
 			this.setState({
 				ingredients: joined,
+				ingredient: ""
 			})
 			this.input.value = ''
 		}
@@ -84,12 +87,23 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<form onSubmit={this.handleSubmit} onChange={this.handleChange} className="input-group wte-form">
-					<input className="form-control form-control-lg" type="text" maxLength="32"
-					placeholder="Enter an ingredient" ref={(input) => this.input = input}>
+				<h1 className="text-center" id="wte-h1">What to Eat?</h1>
+
+
+				<form onSubmit={this.handleSubmit} onChange={this.handleChange} className="input-group" autoComplete="off">
+					<input className="form-control" type="text" maxLength="32" id="wte-form" name="wte-form"
+					ref={(input) => this.input = input} required>
 					</input>
-					<button type="button" onClick={this.getRecipes}>Go!</button>
+					<span className="wte-label">
+						{this.state.ingredients.length > 0 ? "Search now or add more ingredients" : "Enter a few ingredients to get started"}
+					</span>
+
+					{this.state.ingredient.length > 0 ? <button type="button" id="wte-add" onClick={this.handleSubmit}><FiPlusCircle /></button> : ''}
+
+					{this.state.ingredients.length > 0 ? <button type="button" id="wte-search" onClick={this.getRecipes}><FaSearch /></button> : ''}
             	</form>
+
+
 				<IngredientList ingredients={this.state.ingredients} removeIngredient={this.removeIngredient} />
 				<RecipeGrid requested={this.state.requested} recipes={this.state.recipes} />
 				<footer className="wte-footer">

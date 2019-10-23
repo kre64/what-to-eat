@@ -1,6 +1,9 @@
-$body-bg: #F6F0E5;
-$primary: #e5f4f6;
-$secondary: #e8e5f6;
+$body-bg: #f6f0e5;
+$primary: #f6f0e5;
+$secondary: #faa916;
+$accent: #d0f0c0;
+
+$black: #191919;
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -9,17 +12,15 @@ html, body {
     min-height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Merriweather', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: $black;
 }
 
 .App {
     min-height: 100vh;
     justify-content: space-between;
-}
-
-.wte-form {
-    padding-bottom: 1rem;
 }
 
 .ingredient-pill {
@@ -63,3 +64,71 @@ html, body {
     margin-top: -1.5rem;
     text-align: center;
 }
+
+#wte-h1 {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.input-group {
+    font-size: 1.2rem;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+input[type=text]#wte-form {
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $black;
+    color: $black;
+    outline: 0;
+}
+
+input[type=text]:focus ~ .wte-label,
+input[type=text]:not(:focus):valid ~ .wte-label{
+    bottom: 2rem;
+    left: 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+button:focus {
+    outline: 0;
+}
+
+#wte-search{
+    background-color: transparent;
+    border: none;
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    padding-left: .8rem;
+}
+
+#wte-add{
+    z-index: 555;
+    background-color: transparent;
+    border: none;
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: .2rem;
+    padding: 0;
+}
+
+.wte-label{
+    color: $black;
+    opacity: .5;
+    position: absolute;
+    pointer-events: none;
+    transition: 0.2s ease-in-out all;
+    -webkit-transition: 0.2s ease-in-out all;
+    -moz-transition: 0.2s ease-in-out all;
+    -o-transition: 0.2s ease-in-out all;
+}
+
+
